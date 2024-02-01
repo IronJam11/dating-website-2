@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% include 'navbar2.html' %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Register</h1>
+          </div>
+        <form method = "POST" autocomplete="off" class="styled-form">
+            {% csrf_token %}
+            {{registerform.as_p}}
+            <button type="submit" value="Register"> REGISTER </button>
+       
+        <script src="" async defer></script>
+        
+    </body>
+
+
+
+
+    <style>
+       
+        .container {
+            text-align: center;
+          }
+
+        .styled-form {
+            max-width: 400px;
+            margin: 0 auto;
+          }
+          
+          .styled-form p {
+            margin-bottom: 10px;
+          }
+          
+          .styled-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+          }
+          
+          .styled-form input[type="text"],
+          .styled-form input[type="email"],
+          .styled-form textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+          }
+          
+          .styled-form button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+          
+          .styled-form button:hover {
+            background-color: #45a049;
+          }
+        
+    
+    
+    </style>
+</html>

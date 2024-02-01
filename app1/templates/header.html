@@ -1,0 +1,81 @@
+{% load static %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: #2980b9;
+        padding: 10px;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    .user-section {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    .user-profile {
+        margin-right: 10px;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+    }
+
+    .user-profile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .logout-button {
+        background-color: #c0392b;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+
+    .logout-button:hover {
+        background-color: #e74c3c;
+    }
+</style>
+
+
+    <h1>Date Mate</h1>
+
+<nav>
+    {% comment %} <a href="{% url 'page1' %}">Page 1</a>
+    <a href="{% url 'page2' %}">Page 2</a>
+    <a href="{% url 'page3' %}">Page 3</a> {% endcomment %}
+    <div class="user-section">
+        <div class="user-profile">
+            <!-- You can replace the placeholder image with the user's profile image -->
+              
+        </div>
+        <span>Welcome to official dating site ! </span> <br/>
+        <button class="logout-button"> <a href="{% url 'logout' %}"> Logout </a></button>
+    </div>
+</nav>

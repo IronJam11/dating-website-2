@@ -1,0 +1,51 @@
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.user-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  max-width: 100 px;
+  overflow: hidden;
+}
+/* 
+.profile-photo {
+  flex-shrink: 0;
+  width: 10px;
+  height: 1500px;
+  
+  border-radius: 50%;
+}
+
+.round-profile {
+  width: 10%;
+  height: 10%;
+  object-fit: cover;
+} */
+
+.user-details {
+  padding: 20px;
+}
+
+.user-details h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.user-details p {
+
+  margin: 5px 0;
+  color: red;
+}

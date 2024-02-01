@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% include 'navbar.html'%}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body><div class="container">
+        <h1> Inbox </h1> </div>
+        {% if users%}
+        {% for userData in users %}
+        <div class = "user-cards-container">
+            <div class="user-card">
+                <div class="profile-photo">
+                  <img src="{{userData.userphoto.url}}" alt="Profile Photo">
+                </div>
+                <div class="user-details">
+                    <h2>Name: {{userData.user}}</h2>
+                    <p>Bio: {{userData.bio}}</p>
+                    <p>Branch: {{userData.branch}}</p>
+                    <p>Gender: {{userData.gender}}</p>
+                    <p>Status: {{userData.status}}</p>
+                    <p>Enrollment Number: {{userData.enrollment_number}} </p>
+                    
+    
+                </div>
+              </div>
+            </div> 
+    
+             
+    {% endfor %}
+    {% else %}
+     <div class="container">
+    <h3> No one here, however we have got a hug for you :) </h3> 
+    <div>
+    <img id="normal" src = "https://i.pinimg.com/originals/35/52/aa/3552aa8e979938fbae0a6ea04ca13b96.jpg" alt="No image" />
+    </div></div>
+    {% endif %}
+
+
+        <script src="" async defer></script>
+    </body>
+    <style> 
+       .space
+       {
+        left:20px;
+       }
+       .container {
+        text-align: center;
+      }
+
+        body{
+            justify:center
+        }
+              
+                
+        .user-cards-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          max-width: 800px;
+        }
+        
+        .user-card {
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          margin: 10px;
+          width: 300px;
+          overflow: hidden;
+        }
+        
+        .profile-photo {
+          flex-shrink: 0;
+          width: 100%;
+          height: 150px;
+          overflow: hidden;
+        }
+        
+        .profile-photo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        
+        .user-details {
+          padding: 20px;
+        }
+        
+        .user-details h2 {
+          margin-bottom: 10px;
+          color: #333;
+        }
+        
+        .user-details p {
+          margin: 5px 0;
+          color: #555;
+        }
+
+        #normal
+        {
+            width: 1000px;
+            height: 700px;
+        }
+        
+
+
+
+
+    </style> 
+</html>

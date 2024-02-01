@@ -1,0 +1,233 @@
+
+{% load static %}
+{% include 'navbardiscover.html'%}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+              <h1> Sort </h1>
+              
+              <nav>
+                <ul>
+                  <li class="dropdown">
+                    <a href="#">Status</a>
+                    <div class="dropdown-content">
+                     <a href="{% url 'discover' %}"> All  </a> <br/>
+                     <a href="{% url 'single' %}"> Single </a><br/>
+                     <a href="{% url 'longdistance' %}"> Long Distance</a><br/>
+                     <a href="{% url 'dating' %}"> Taken </a>
+
+                    </div>
+                  </li>
+                  {% comment %} <li><a href="{% url 'discover' %}"> All  </a></li>
+                  <li><a href="{% url 'single' %}"> Single </a></li>
+                  <li><a href="{% url 'longdistance' %}"> Long Distance</a></li>
+                  <li><a href="{% url 'dating' %}"> Taken </a></li> {% endcomment %}
+                  <li class="dropdown">
+                    <a href="#">Branch</a>
+                    <div class="dropdown-content">
+                      <a href="{% url 'mechanical' %}">Mechanical Engineering</a>
+                      <a href="{% url 'electrical' %}">Electrical Engineering</a>
+                      <a href="{% url 'mnc' %}">Mathematics and Computing</a>
+                      <a href="{% url 'DSAI' %}">DSAI</a>
+                      <a href="{% url 'electronics' %}">Electronics</a>
+                      <a href="{% url 'cse' %}">Computer Science</a>
+                      <a href="{% url 'chemical' %}">Chemical Engineering</a>
+                      <a href="{% url 'cs' %}">Chemical Science</a>
+                      <a href="{% url 'architecture' %}">Architecture</a>
+                      <a href="{% url 'economics' %}">Economics</a>
+                      <a href="{% url 'chemical' %}">Chemical Engineering</a>
+                      <a href="{% url 'civil' %}">Civil Engineering</a>
+                      <a href="{% url 'metallurgy' %}">Metallurgy</a>
+                      <a href="{% url 'GT' %}">GT</a> <br/>
+                      <a href="{% url 'GPT' %}">GPT</a><br/>
+                      <a href="{% url 'eph' %}">EPH</a> <br/>
+                      <a href="{% url 'biotech' %}">BioTech</a>
+                   
+
+                    </div>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#">Gender</a>
+                    <div class="dropdown-content">
+                     <a href="{% url 'male' %}"> Male </a> <br/>
+                     <a href="{% url 'female' %}"> Female </a><br/>
+                     <a href="{% url 'rather' %}"> Rather not say </a><br/>
+                     
+
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </header>
+          <h1> Profiles </h1>
+        
+        <div>
+       
+       
+       <div class="user-cards-container">
+        {% for userData in users %}
+        
+            
+            {% comment %} <h2><a href="{% url 'blog_detail' pk=blog.pk %}">{{ blog.title }}</a></h2> {% endcomment %}
+            
+                
+         
+            
+        <div class="user-card">
+            <div class="profile-photo">
+                <img src="{{ userData.userphoto.url }}" onerror="replaceWithErrorImage(this);" alt="Image">
+                <script>
+                    function replaceWithErrorImage(image) {
+                   image.onerror = null; // to avoid infinite loop in case default image is also invalid
+                   image.src = 'https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg';
+                   }
+                   </script>
+            </div>
+            <div class="user-details">
+                <h2> {{userData.username}}</h2>
+               
+                <p>Bio: {{userData.bio}}</p>
+                <p>Branch: {{userData.branch}}</p>
+                <p>Gender: {{userData.gender}}</p>
+                <p>Status: {{userData.status}}</p>
+                <p>Enrollment Number: {{userData.enrollment_number}} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+              
+           
+        
+
+
+    
+        
+    {% endfor %}
+    </div>
+
+
+    <style> 
+      .dropdown {
+        position: relative;
+      }
+  
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+  
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+
+
+
+        header {
+            background-color: #52BD35;
+            color: #fff;
+            padding: 10px 0;
+          }
+          
+          .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+          }
+          
+          h1 {
+            margin: 0;
+          }
+          
+          nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+          }
+          
+          nav ul li {
+            margin-right: 20px;
+          }
+          
+          nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+          }
+          
+          nav a:hover {
+            color: #ffcc00;
+          }
+
+
+        
+        .user-cards-container {
+          display: flex;
+            
+          }
+          
+          .user-card {
+            display: inline-grid;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: 300px;
+            overflow: hidden;
+          }
+          
+          .profile-photo {
+            flex-shrink: 0;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+          }
+          
+          .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          
+          .user-details {
+            padding: 20px;
+          }
+          
+          .user-details h2 {
+            margin-bottom: 10px;
+            color: #333;
+          }
+          
+          .user-details p {
+            margin: 5px 0;
+            color: #555;
+          }
+          
+            
+    </style>
+   
+</div> 
+        <script src="" async defer></script>
+    </body>
+</html>
